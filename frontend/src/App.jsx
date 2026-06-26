@@ -5,7 +5,7 @@ import MemberForm from './components/MemberForm';
 import MemberList from './components/MemberList';
 import ConfirmModal from './components/ConfirmModal';
 
-const BACKEND_URL = 'http://localhost:5000';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
 export default function App() {
   const [members, setMembers] = useState([]);
