@@ -69,3 +69,19 @@ Here are the captured assets during the E2E verification session:
 <!-- slide -->
 ![Dashboard Light Mode](/C:/Users/PREETI%20KUMARI/.gemini/antigravity-ide/brain/199156c9-f136-46aa-8e55-bdcd1ff038ee/theme_toggled_1782381030201.png)
 ````
+
+---
+
+## Deployment Configuration (Vercel Monorepo)
+
+To configure the application for unified frontend and backend deployment on Vercel (using serverless functions), we successfully applied the following changes:
+
+1. **Configured Frontend API Endpoints:**
+   - Modified [App.jsx](file:///c:/Users/PREETI%20KUMARI/OneDrive%20-%20nsut.ac.in/Desktop/se/frontend/src/App.jsx) to dynamically resolve the API base path from `import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'`.
+
+2. **Created Vercel Monorepo Configuration:**
+   - Created [vercel.json](file:///c:/Users/PREETI%20KUMARI/OneDrive%20-%20nsut.ac.in/Desktop/se/vercel.json) in the workspace root directory. It maps `/api/(.*)` endpoints to the serverless backend function, and routes asset requests to the static React frontend folder.
+
+3. **Adapted Express App for Serverless Runtime:**
+   - Modified [server.js](file:///c:/Users/PREETI%20KUMARI/OneDrive%20-%20nsut.ac.in/Desktop/se/backend/server.js) to only call `app.listen()` when running locally, and exported the `app` instance using `module.exports` so Vercel can run it as a serverless function.
+
