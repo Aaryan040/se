@@ -105,10 +105,6 @@ Open **[http://localhost:5173/](http://localhost:5173/)** in your browser.
 **Challenge**: When setting up the project to use MongoDB Atlas, if a user tries to run the project locally without copy-pasting their credentials first, the server immediately crashes on startup with DNS ENOTFOUND errors.
 **Solution**: Programmed an intelligent fallback mechanism in `backend/config/db.js` and `seed.js`. If `MONGO_URI` is not set or contains the `'xxxxx'` placeholder, it falls back to connection on `mongodb://127.0.0.1:27017/membership_db`. This guarantees a smooth, out-of-the-box local developer experience.
 
-### 2. Browser Testing with Native Dialogs (`window.confirm`)
-**Challenge**: Automated browser testing subagents cannot easily accept/dismiss browser-native `window.confirm` dialogs, failing deletion verification.
-**Solution**: Designed and built a premium glassmorphic `<ConfirmModal>` React component. This not only resolved the test automation issue but drastically elevated the UI/UX compared to ugly native popups, maintaining a high-fidelity visual aesthetic.
-
 ---
 
 ## Future Improvements (With One More Day)
